@@ -11,8 +11,9 @@ echo "
 echo "			<div class='spacer'>&nbsp;</div>";
 
 //create a section that has the sections is JS is turned off.
-echo "			<noscript>";
 //getSections('chris');
+
+echo "			<noscript>";
 echo "				<p>Please turn on JavaScript to view the page properly.</p>";
 echo "			</noscript>";
 
@@ -54,4 +55,7 @@ echo "			<div id='details'>
 
 ";
 page_footer();
+
 ?>
+
+

@@ -1,28 +1,31 @@
 $(document).ready(function() {
 //$('#thumbnail_pane.scroll_pane').jScrollPane(function(){alert('hi');});
 
+	//alert("AAA");
 	var ua = navigator.userAgent,
     click_event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-
+	//alert("BBB");
 	//get the sections
-	$.post('../includes/functions.php',{'submitted':'submitted','reason':'sections','artist':'chris'},function(data){
-//alert(data);
+	$.post('functions.php',{'submitted':'submitted','reason':'sections','artist':'chris'},function(data){
+	//alert("data");
 		$('#section_pane').append(data);
 	});
 
-
-//	$('#thumbnail_pane').jScrollPane();
+	//alert("CCC");
+	//$('#thumbnail_pane').jScrollPane();
 
 	//get the thumbsnails
 	$('.section_header').live(click_event,function(event) {
 
+		//alert("Header Clicked.");
 		$('#thumbnail_pane').empty();
 		$('#display_pane').empty();
 		$('#details').empty();
 		var section_name = $(this).children('h3').text();
+		//alert("Section Name: " + section_name);
 
-		$.post('../includes/functions.php',{'submitted':'submitted','reason':'thumbnails','section_name':section_name},function(data){
-//alert(data);
+		$.post('functions.php',{'submitted':'submitted','reason':'thumbnails','section_name':section_name},function(data){
+		//alert(data);
 			$('#thumbnail_pane').append(data);
 		});
 
@@ -30,9 +33,7 @@ $(document).ready(function() {
 	
 	var pos = $(window).height() - 90;	
 
-	var cssObj = {
-			'height':pos
-		}
+	var cssObj = {'height':pos};
 
 	$('#thumbnail_pane').css(cssObj);
 
@@ -56,13 +57,13 @@ $(document).ready(function() {
 		var image_name = image_name_array[image_name_array.length - 1];
 
 		//here is where we get a bunch of info from the database and display it. includes/getDetails? or includes/functions?reason=details;
-		$.post('../includes/functions.php',{'submitted':'submitted','reason':'details','image_name':image_name},function(data){
-//alert(data);
+		$.post('functions.php',{'submitted':'submitted','reason':'details','image_name':image_name},function(data){
+		//alert(data);
 			var details = $('#details');
 			details.empty();
 			details.append(data);
 		});
-/* this is taken out until i can figure out how to make it happen immediately and smoothly 
+		/* this is taken out until i can figure out how to make it happen immediately and smoothly 
 		var winHeight = $(window).height();
 		var imgHeight = $('#display_pane').children('img').height();
 
@@ -72,6 +73,7 @@ $(document).ready(function() {
 	});
 
 });
+
 $(window).load(function () {
 
 	/*$('.section_header h3:contains("terms and conditions")').live('click',function(event) {
@@ -132,10 +134,4 @@ $(window).load(function () {
     		$("#thumbnails").css('width',textareaWidth + "px");
 	}
 				
-	
-
-	
-
-
-
 });
