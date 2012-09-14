@@ -30,6 +30,26 @@ function page_header() {
 					<script type='text/javascript' language='javascript' src='js/" . $first_name . ".js'></script>
 					<!-- styles needed by jScrollPane -->";
 
+	 echo "	<style type='text/css'>
+				{ height: 500px;  margin: auto }
+			</style>";
+			
+			/*
+				.slideshow { height: 232px; width: 232px; margin: auto }
+				.slideshow img { padding: 15px; border: 1px solid #ccc; background-color: #eee; }
+			*/
+	echo '		
+			<!-- include Cycle plugin -->
+			<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+			
+			<script type="text/javascript">
+				$(document).ready(function() {
+				    $(".slideshow").cycle({
+						fx: "fade" // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+					});
+				});
+			</script>';
+
 			/*echo '
 			<link type="text/css" href="../css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
 			<!-- the mousewheel plugin - optional to provide mousewheel support -->
@@ -54,38 +74,86 @@ function page_footer() {
 // pull all thumbnails for a section
 // 	section name must have no space or special chars.
 /////////////////
-function getThumbnails($section_name) {
+function getThumbnails($section_name, $starting_pic) {
 
 	global $conn;
 	$conn = mysqli_connect("localhost","sweetlou_ruppert","ruppert","sweetlou_ruppert2") ;
 
 	//now create the thumbnails
 	$returnString = '';
-
-	
 	$base_path = '/ruppert/imgs/chris/' . str_replace(" ","_",$section_name);
-	
 	$path_array = explode("/",$base_path);
-//echo sizeOf($path_array) . ;
+	$query = "select i.item_filename FROM sections s INNER JOIN items i ON i.groups = s.cat_id INNER JOIN item_details d ON i.id = d.id where name = '$section_name' order by d.display_order";
+	$result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));	
+	
+	//echo sizeOf($path_array) . ;
 	//must customize for chrises db
 	//$query = "SELECT i.item_filename FROM artists a INNER JOIN sections s ON a.id = s.owner INNER JOIN items i ON i.groups = s.cat_id WHERE a.name = '$artist'";
-	$query = "select i.item_filename FROM sections s INNER JOIN items i ON i.groups = s.cat_id INNER JOIN item_details d ON i.id = d.id where name = '$section_name' order by d.display_order";
-	$result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));
-//echo mysqli_num_rows($result);
-	while ($row = mysqli_fetch_row($result)) {
-
-			if (strpos($row[0],'.')) {
-				$returnString .= "<div class='thumbnail'><a href='" 
-							. $base_path . DIRECTORY_SEPARATOR . $row[0]
-							. "'><img class='' src=\""  
-							.  $base_path . DIRECTORY_SEPARATOR . "thumbs" . DIRECTORY_SEPARATOR . $row[0]
-. "\" /></a></div>";
-//	echo ".";
-		}
+	//echo mysqli_num_rows($result);
+	
+	$num_rows = mysqli_num_rows($result);
+	//echo $num_rows;
+	//echo $starting_pic;
+	if ($num_rows - $starting_pic < 4) {
+		$starting_pic = $num_rows - 4;
 	}
+	
+	$returnString .= "<div id='up_nav' class='nav_button'><img id='' alt='$starting_pic,$section_name' src=\""  .  "imgs/up.png" . "\" /></div>";
+	
+	$counter = 0;
+	$break_flag = 0;
+	$overall_height = 0;
+	
+	while ( ($row = mysqli_fetch_row($result)) && ($break_flag != 1) ) { // && $break_flag != 1
+		if ($counter < $starting_pic) {}
+		
+		else {
+			
+		
+		//echo $row;
+	
+			if (strpos($row[0],'.')) {
+				$file_string = "http://www.loualicegary.com" . $base_path . DIRECTORY_SEPARATOR . $row[0];
+				//echo $file_string;
+				$result_array = getimagesize($file_string);	
+				$overall_height += 80 * ($result_array[1] / $result_array[0]);	
+				
+				if (($overall_height < 480) ) {
+					
+					$returnString .= "<div class='thumbnail'><a href='" 
+							. $base_path . DIRECTORY_SEPARATOR . $row[0]
+							. "'><img id='thumb$counter' src=\""  
+							.  $base_path . DIRECTORY_SEPARATOR . "thumbs" . DIRECTORY_SEPARATOR . $row[0]
+							. "\" /></a></div>";					
+				}
+				else {
+					$break_flag = 1;
+					
+				}	
+
+							//	echo "."; 
+							//$file_string = "http://www.loualicegary.com" . $base_path . DIRECTORY_SEPARATOR . $row[0];
+							//echo $file_string;
+							//$result_array = getimagesize($file_string);
+							//echo $result_array[0]."x".$result_array[1];
+							//echo " x ";
+							//echo $result_array[1];
+			}
+	
+		}
+		
+		$counter = $counter + 1;
+	
+	}
+
+	$max_count = $counter-1;
+	$returnString .= "<div id='down_nav' class='nav_button'><img id='' alt='$max_count,$section_name' src=\""  .  "imgs/down.png" . "\" /></div>";
+	//$returnString .= "<div class='thumbnail'><img id='' src=\""  .  "imgs/down.png" . "\" /></div>";
+	
 	echo $returnString;
 
 }
+
 function sectionPicker($section_name) {
 
 	global $conn;
@@ -230,7 +298,7 @@ if ((isset($_POST['submitted'])) || (isset($_GET['submitted']))) {
 	switch($reason) {
 
 		case 'thumbnails':
-			getThumbnails($section_name);
+			getThumbnails($section_name, $starting_pic);
 			break;
 		case 'sections':
 			getSections($artist);

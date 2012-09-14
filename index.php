@@ -1,7 +1,7 @@
 <?php 
 $artist = 'chris';
 
-include("./includes/functions.php");
+include("./functions.php"); //"./includes/functions.php"
 
 page_header();
 
@@ -33,7 +33,19 @@ echo "			</div>
 echo "		<div id='center_pane'>	
 
 			<div id='artist_name'>Christopher Ruppert</div>
-			<div id='display_pane'></div>
+			<div id='display_pane'>
+			
+			
+				<div id='slideshow' class='slideshow'>
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/original_paintings/02_mabel.jpg' height='400'  />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/master_copies/03_picasso_the_embrace.jpg' height='350'  />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/sculpture_and_performance/09_brothers_breton.jpg' height='350'  />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/tattoo/10_Peony_for_Meadow.jpg' height='350'  />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/early_work/bullfight.jpg' height='350' />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/recent_work/01_yellow_skull.jpg' height='350' />
+				</div>
+			
+			</div>
 		</div>";
 
 echo "		<div id='details_pane'>";

@@ -96,6 +96,14 @@ form {
 	max-height: 90%;
 	margin: 0 auto;
 }
+
+#slideshow img {
+	height: auto;
+	max-width: 600px;
+	max-height: 90%;
+	margin: 0 auto;
+}
+
 #details_pane {
 	width: 250px;
 	height: 90%;
@@ -112,7 +120,7 @@ form {
 	width: 600px;
 }
 .thumbnail {
-	margin-bottom: .3em;
+	margin-bottom: 0px;
 }
 .thumbnail img {
 
