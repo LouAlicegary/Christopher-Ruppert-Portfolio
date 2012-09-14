@@ -13,8 +13,8 @@ $(document).ready(function() {
 	$('#up_nav').live(click_event,function(event) {
 
 		$('#thumbnail_pane').empty();
-		$('#display_pane').empty();
-		$('#details').empty();
+		//$('#display_pane').empty();
+		//$('#details').empty();
 				
 		var str=this.innerHTML;
 		var beg=str.search("alt=");
@@ -35,8 +35,8 @@ $(document).ready(function() {
 	$('#down_nav').live(click_event,function(event) {
 		//alert(this.id);
 		$('#thumbnail_pane').empty();
-		$('#display_pane').empty();
-		$('#details').empty();
+		//$('#display_pane').empty();
+		//$('#details').empty();
 				
 		var str=this.innerHTML;
 		var beg=str.search("alt=");
@@ -75,11 +75,13 @@ $(document).ready(function() {
 			var image_path = alt_string; //$(this).attr('src');
 			image_path = image_path.replace('/thumbs','');
 			$('#display_pane').append("<div class='spacer'>&nbsp;</div>");
-			var tag = "<img src=\"" + image_path  + "\" \>";
+			var tag = "<img id=\"big_image\" src=\"" + image_path  + "\" \>";
 			$('#display_pane').append(tag);
 
 			var image_name_array = image_path.split('/'); //basepath(image_path);
 			var image_name = image_name_array[image_name_array.length - 1];
+	
+			
 	
 			//show details of first piece
 			$.post('ie_functions.php',{'submitted':'submitted','reason':'details','image_name':image_name},function(data){
@@ -88,10 +90,20 @@ $(document).ready(function() {
 				details.empty();
 				details.append("<div class='spacer'>&nbsp;</div>");
 				details.append(data);
-			});				
+			});		
+			
+			
+			$("#big_image").load(function() {
+        		var big_wid = $('#display_pane').width();
+        		var small_wid = $(this).width();
+        		var the_wid = big_wid - small_wid - 10; // -10 for buffer between desc and pic
+        		//alert("big " + big_wid + " small " + small_wid + " the " + the_wid);
+        		$('#details').css({ 'margin-left': -the_wid });
+    		});
+					
 		});
  
- 		$('#display_pane').empty();
+ 		//$('#display_pane').empty();
 	});
 
 
@@ -116,7 +128,7 @@ $(document).ready(function() {
 		image_path = image_path.replace('/thumbs','');
 		
 		//create a tag out of it
-		var tag = "<img src=\"" + image_path  + "\" \>";
+		var tag = "<img id=\"big_image\" src=\"" + image_path  + "\" \>";
 		$('#display_pane').append("<div class='spacer'>&nbsp;</div>");
 		$('#display_pane').append(tag);
 
@@ -129,6 +141,15 @@ $(document).ready(function() {
 			details.append("<div class='spacer'>&nbsp;</div>");
 			details.append(data);
 		});
+		
+		$("#big_image").load(function() {
+        	var big_wid = $('#display_pane').width();
+        	var small_wid = $(this).width();
+        	var the_wid = big_wid - small_wid - 10; // -10 for buffer between desc and pic
+        	//alert("big " + big_wid + " small " + small_wid + " the " + the_wid);
+        	$('#details').css({ 'margin-left': -the_wid });
+    	});
+		
 	});
 
 

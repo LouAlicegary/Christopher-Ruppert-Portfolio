@@ -14,8 +14,9 @@
 		<title> <?php $name ?> </title>
 		
 		<link type='text/css' rel='stylesheet' href='ie_css.css'>
-		<link href='http://fonts.googleapis.com/css?family=Quicksand|Esteban|Junge|Linden+Hill|Exo|Viga|Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
-					
+		<!--<link href='http://fonts.googleapis.com/css?family=Quicksand|Esteban|Junge|Linden+Hill|Exo|Viga|Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>-->
+		<link href='http://fonts.googleapis.com/css?family=Esteban|Nothing+You+Could+Do|Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+						
 		<script type='text/javascript' language='javascript' src='includes/js/jquery-1.7.2.min.js'></script>
 		<script type='text/javascript' language='javascript' src='ie_chris.js'></script>
 		
@@ -34,9 +35,11 @@
 	
 	<body>
 		<div id='main'>
-			<div id='artist_name'>Christopher Ruppert</div>
+			<div id='top_pane'></div>
 			
 			<div id='section_pane'>
+				<img src="imgs/ruppert_signature.png" width="260">
+				<!--<div id='artist_name'>Christopher Ruppert</div>-->
 				<!--<div class='spacer'>&nbsp;</div>-->
 				<!--<div id='credits'>
 					site design by<br />

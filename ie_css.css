@@ -9,7 +9,7 @@ body {
 }
 
 h1,h2,h3 {
-	font-family: 'Esteban';
+	font-family: 'Covered By Your Grace';
 }
 
 form {
@@ -22,14 +22,15 @@ form {
 	margin-left: 20px;
 }
 
+#top_pane {
+	height: 30px;
+	width: 100%;
+}
+
 #top_pane div {
 	display: inline-block;
 }
 
-#artist_name {
-	/*text-align: center;*/
-	line-height: 50px;
-}
 
 #logo {
 	width: 8em;
@@ -53,6 +54,26 @@ form {
 	margin: 0 auto;
 }
 
+#slideshow {
+	width: 600px;
+	height: 90%;
+	/*ertical-align: top*/
+	/*align: center;*/
+	/*background-color: purple;*/
+	/*text-align: center;*/
+	/*height: 600px; line-height: 600px; text-align: center;*/
+	position: relative;
+}
+
+#slideshow img {
+	height: auto;
+	max-width: 600px;
+	max-height: 90%;
+	margin: 0 auto;
+	/*text-align: center;
+	vertical-align: middle;*/
+}
+
 #section_pane, #thumbnails, #thumbnail_pane, #center_pane, #display_pane, #details_pane {
 	position: relative;
 	display: inline; /*inline-block;*/
@@ -62,21 +83,33 @@ form {
 	/*text-align: center;*/
 }
 
-#thumbnails {
-	width: 150px;
-	height: 90%;
-	/*overflow: hidden;*/
-	text-align: center;
-	/*background-color: lightblue;*/
-}
-
 #section_pane {
 	width: 260px;
 	height: 90%;
 	vertical-align: top;
 	text-align: center;
 	font-size: 1em;
+	font-family: 'Covered By Your Grace';
+	/*font-weight: 200;*/
+	color: #222222;
 	/*background-color: green;*/
+}
+
+#artist_name {
+	font-size: 1.6em;
+	font-weight: bold;
+	/*width: 100%;
+	height: 60px;*/
+	line-height: 50px;
+	color: black;
+}
+
+#thumbnails {
+	width: 150px;
+	height: 90%;
+	/*overflow: hidden;*/
+	text-align: center;
+	/*background-color: lightblue;*/
 }
 
 #thumbnail_pane {
@@ -105,27 +138,7 @@ form {
 	/*height: 600px; line-height: 600px; text-align: center;*/
 }
 
-#slideshow {
-	width: 600px;
-	height: 90%;
-	/*ertical-align: top*/
-	/*align: center;*/
-	/*background-color: purple;*/
-	/*text-align: center;*/
-	/*height: 600px; line-height: 600px; text-align: center;*/
-	position: relative;
-}
-
 #display_pane img {
-	height: auto;
-	max-width: 600px;
-	max-height: 90%;
-	margin: 0 auto;
-	/*text-align: center;
-	vertical-align: middle;*/
-}
-
-#slideshow img {
 	height: auto;
 	max-width: 600px;
 	max-height: 90%;
@@ -139,6 +152,15 @@ form {
 	height: 90%;
 	vertical-align: top;
 	/*background-color: gray;*/
+}
+
+#details {
+	margin: .2em, 0em, 0em, .5em; /*.5em auto;*/
+	font-size: .7em;
+	line-height: 1em;
+	font-family: Tahoma;
+	font-weight: bold;
+	color: black;
 }
 
 #tagline {
@@ -161,13 +183,6 @@ form {
 	width: 80px;
 }
 
-#artist_name {
-	font-size: 1.7em;
-	font-weight: bold;
-	width: 100%;
-	height: 60px;
-}
-
 .spacer {
 	/*font-size: 2em;*/
 	height: 25px;	
@@ -186,10 +201,6 @@ form {
 	vertical-align: bottom;
 	font-size: .35em;
 	/*background-color: lightgreen;*/
-}
-
-#details {
-	margin: .5em auto;
 }
 
 .image_collection {

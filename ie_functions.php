@@ -122,6 +122,9 @@ function getThumbnails($section_name, $starting_pic) {
 
 }
 
+
+
+
 function getSections ($artist) {
 	global $conn;
 	$conn = mysqli_connect("localhost","sweetlou_ruppert","ruppert","sweetlou_ruppert2") ;
@@ -151,6 +154,9 @@ function getSections ($artist) {
 	echo $returnString;
 	//return $returnString;
 }
+
+
+
 
 //////////////////////////////
 // retrieve details by image name
