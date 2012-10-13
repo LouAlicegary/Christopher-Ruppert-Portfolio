@@ -3,13 +3,13 @@ html {
 }
 
 body {
-	font-family: 'Covered By Your Grace';
+	font-family: 'Open Sans Condensed';
 	height: 100%;
 	margin: 0px;	
 }
 
 h1,h2,h3 {
-	font-family: 'Covered By Your Grace';
+	/*font-family: 'Covered By Your Grace';*/
 }
 
 a:link {
@@ -99,7 +99,7 @@ form {
 	vertical-align: top;
 	text-align: center;
 	font-size: 1em;
-	font-family: 'Covered By Your Grace';
+	font-family: 'Open Sans Condensed';
 	/*font-weight: 200;*/
 	color: #000000;
 	/*background-color: green;*/
@@ -168,7 +168,7 @@ form {
 	margin: .2em, 0em, 0em, .5em; /*.5em auto;*/
 	font-size: .8em;
 	line-height: 1.2em;
-	font-family: 'Raleway';
+	font-family: 'Open Sans Condensed';
 	/*font-weight: bold;*/
 	color: black;
 }
