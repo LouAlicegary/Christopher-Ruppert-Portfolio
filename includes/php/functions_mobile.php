@@ -1,39 +1,21 @@
 <?php 
 	require_once ('connect.php');
 
-/////////////////////////
-//
-// utility functions for creating elements 
-// 
-// call the file with ajax and  proper thingers and it will make what you want
-// or include it and call the functions manually
-//
-/////////////////////////
- 
-
+//THIS PHP AJAX CONNECTION IS NECESSARY SO THAT JAVASCRIPT (LOCALLY RUN) CAN INTERACT WITH SQL (ON SERVER)
 /// MAIN SWITCH - this is what makes the file work either as an php include or js ajax call. ///
 /// if it's not submitted then this file does nothing
 if ((isset($_POST['submitted'])) || (isset($_GET['submitted']))) {
-
 	//convert POST vars for easy use, should have been passed in properly
-	if (isset($_POST['submitted'])) {
-		foreach ($_POST as $key => $value) {
+	if (isset($_POST['submitted']))
+		foreach ($_POST as $key => $value)
 			${$key} = $value; //echo "$$key = $value <br />";
-		}
-	} 
-	else {
-		foreach ($_GET as $key => $value) {
+	else
+		foreach ($_GET as $key => $value)
 			${$key} = $value; //	echo "$$key = $value <br />";
-		}
-	}
-
-	$return = '';
-	//$base_dir = '../imgs/'. $base_dir;
-	//echo $base_dir;
 
 	switch($reason) {
 		case 'thumbnails':
-			getThumbnails($section_name, $starting_pic);
+			getThumbnails($section_name, $screen_height, $screen_width);
 			break;
 		case 'sections':
 			getSections($artist);
@@ -44,137 +26,58 @@ if ((isset($_POST['submitted'])) || (isset($_GET['submitted']))) {
 		default:
 			break;
 	}
-
 }
-
-//mysqli_close($conn); 
-
-
-
-
-
 
 /////////////////
 // pull all thumbnails for a section
 // 	section name must have no space or special chars.
 /////////////////
-function getThumbnails($section_name, $starting_pic) {
+function getThumbnails($section_name, $screen_height, $screen_width) {
 
 	global $conn;
 	//$conn = mysqli_connect("localhost","sweetlou_ruppert","ruppert","sweetlou_ruppert2");
 
-	$returnString = '';
+	$returnString = "<div id='slider'><ul id='Gallery'>";
 	$base_path = '/imgs/chris/' . str_replace(" ","_",$section_name);
 	$path_array = explode("/",$base_path);
 	
 	$query = "select i.item_filename FROM sections s INNER JOIN items i ON i.groups = s.cat_id INNER JOIN item_details d ON i.id = d.id where name = '$section_name' order by d.display_order";
 	$result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));	
 	$num_rows = mysqli_num_rows($result);
-
 	
-	$returnString = '<div id="tS3" class="jThumbnailScroller">
-					    <div class="jTscrollerContainer">
-					        <div class="jTscroller">';
+	$screen_ratio = $screen_width / $screen_height;
 							
 	while ( ($row = mysqli_fetch_row($result)) ) {
-		
-		
 		if (strpos($row[0],'.')) {
-			$file_string = "http://www.christopherruppert.com" . $base_path . DIRECTORY_SEPARATOR . "thumbs" . DIRECTORY_SEPARATOR . $row[0];
-				
-				/*
-				$returnString .= "<div class='thumbnail'><a href='" 
-							. $base_path . DIRECTORY_SEPARATOR . $row[0]
-							. "'><img id='thumb$counter' src=\""  
-							.  $base_path . DIRECTORY_SEPARATOR . "thumbs" . DIRECTORY_SEPARATOR . $row[0]
-							. "\" /></a></div>";
-				 */ 
-				 
-			$returnString .= "<a href='" . $base_path . DIRECTORY_SEPARATOR . $row[0] . "'><img src='$file_string' /></a>";
-		}
-		
-		/*<a href="#"><img src="thumbs/img1.jpg" /></a>
-        <a href="#"><img src="thumbs/img1.jpg" /></a>
-        <a href="#"><img src="thumbs/img3.jpg" /></a>
-        <a href="#"><img src="thumbs/img4.jpg" /></a>
-        <a href="#"><img src="thumbs/img5.jpg" /></a>
-        <a href="#"><img src="thumbs/img6.jpg" /></a>
-        <a href="#"><img src="thumbs/img7.jpg" /></a>
-        <a href="#"><img src="thumbs/img8.jpg" /></a>*/
-		
-	}				
-					           
-					            
-								
-								
-		$returnString .= '</div>
-					    </div>
-					    <a href="#" class="jTscrollerPrevButton"></a>
-					    <a href="#" class="jTscrollerNextButton"></a>
-					</div>';
-
- 
-
-	/*
-	 
-	if ($num_rows - $starting_pic < 4) {
-		$starting_pic = $num_rows - 4;
-	}
-	
-	$returnString .= "<div id='up_nav' class='nav_button'><img id='' alt='$starting_pic,$section_name' src=\""  .  "imgs/up.png" . "\" /></div>";
-	
-	$counter = 0;
-	$break_flag = 0;
-	$overall_height = 0;
-	
-	while ( ($row = mysqli_fetch_row($result)) && ($break_flag != 1) ) {
-		
-		if ($counter < $starting_pic) {
-				
-		}
-		
-		else {
+			$file_string = "http://www.christopherruppert.com" . $base_path . DIRECTORY_SEPARATOR . $row[0];
 			
-			if (strpos($row[0],'.')) {
-				$file_string = "http://www.loualicegary.com" . $base_path . DIRECTORY_SEPARATOR . $row[0];
-				//echo $file_string;
-				$result_array = getimagesize($file_string);	
-				$overall_height += 80 * ($result_array[1] / $result_array[0]);	
-				
-				if (($overall_height < 500) ) {
-					
-					$returnString .= "<div class='thumbnail'><a href='" 
-							. $base_path . DIRECTORY_SEPARATOR . $row[0]
-							. "'><img id='thumb$counter' src=\""  
-							.  $base_path . DIRECTORY_SEPARATOR . "thumbs" . DIRECTORY_SEPARATOR . $row[0]
-							. "\" /></a></div>";					
-				}
-				else {
-					$break_flag = 1;
-					//echo $file_string;
-				}	
+			list($width, $height, $type, $attr) = getimagesize("../.." . $base_path . DIRECTORY_SEPARATOR . $row[0]);
+			$painting_ratio = $width / $height;
+			
+			if ($painting_ratio > $screen_ratio) {
+				$size_string = "width=$screen_width";  
 			}
-		}
-		
-		$counter = $counter + 1;
+			else {
+				$size_string = "height=$screen_height";
+			}
+			
+				 
+			$returnString .= "<li><img src='$file_string' " . $size_string . " alt='" . $width . "x" . $height . "x" . $screen_height . "x" . $screen_width . "' /></li>";
+		}	
+	}				
 	
-	}
-
-	$max_count = $counter-1;
-	$returnString .= "<div id='down_nav' class='nav_button'><img id='' alt='$max_count,$section_name' src=\""  .  "imgs/down.png" . "\" /></div>";
-	*/
-
+	$returnString .= "</ul></div>";
+					           			          
 	echo $returnString;
-	//echo $overall_height;
-
 }
 
-
+			
 
 
 function getSections ($artist) {
-	global $conn;
-	//$conn = mysqli_connect("localhost","sweetlou_ruppert","ruppert","sweetlou_ruppert2") ;
+		
+		global $conn;
+	    //$conn = mysqli_connect("localhost","sweetlou_ruppert","ruppert","sweetlou_ruppert2") ;
 
 		$base_path = "./imgs/$artist";
 		$thumb_path = $base_path . "/thumbs";
@@ -191,15 +94,55 @@ function getSections ($artist) {
 			//create the content header
 			$returnString .= "
 				<div class='section_header' id='$section_name' >
-					<h3>$cleanedSectionName<span class=\"sub_hdr\"></span></h3>
+					<h3>$cleanedSectionName</h3>
 				</div>";
 
 		}
+		$returnString .= "</div>";
+		//</div>";
+		echo $returnString;
+		//return $returnString;  
+ 
+ 
+ /*	
+  	global $conn;
+	//$conn = mysqli_connect("localhost","sweetlou_ruppert","ruppert","sweetlou_ruppert2") ;
+
+		$base_path = "./imgs/$artist";
+		$thumb_path = $base_path . "/thumbs";
+		$main_img_path = $thumb_path . "/main";
+
+		$returnString = "";
+		//get section names from the db
+		$query = "SELECT s.name FROM artists a INNER JOIN sections s ON a.id = s.owner WHERE a.name = '$artist' and s.active = 1 order by s.sec_order";
+		$result  = mysqli_query($conn,$query) or die("Query Error ($query)<br />" . mysqli_error($conn));
+		$returnString .= "<div class='sections'>";
+		
+		
+		
+		$row_cnt = $result->num_rows;
+		$section_height = 75 / $row_cnt; 
+		 
+		 
+		 
+		while ($row = mysqli_fetch_row($result)) { 
+			$cleanedSectionName = $row[0];
+			$section_name = str_replace(" ","_",$section_name);
+			//create the content header
+			$returnString .= "
+				<div class='section_header' id='$section_name' style='background-color:#00ff00'>
+					<h3>$cleanedSectionName + $row_cnt <span class=\"sub_hdr\"></span></h3>
+				</div>";
+			
+		}
+		
 	$returnString .= "</div>";
 	//</div>";
 
 	echo $returnString;
 	//return $returnString;
+
+  */
 }
 
 

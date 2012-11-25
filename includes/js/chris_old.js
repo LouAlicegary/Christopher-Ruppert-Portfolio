@@ -1,6 +1,5 @@
 
 $(document).ready(function() {
-	
 	//get the sections
 	$.post('includes/php/functions.php',{'submitted':'submitted','reason':'sections','artist':'chris'},function(data){
 		//alert(data);
@@ -47,7 +46,7 @@ $(document).ready(function() {
 				(new Image).src = image_path;				
 			}
 
-			var t=setTimeout(function(){$("#tS3").thumbnailScroller({scrollerType:"clickButtons",scrollerOrientation:"vertical",scrollSpeed:2,scrollEasing:"easeOutCirc",scrollEasingAmount:600,acceleration:4,scrollSpeed:800,noScrollCenterSpace:10,autoScrolling:0,autoScrollingSpeed:2000,autoScrollingEasing:"easeInOutQuad",autoScrollingDelay:2000});},2000)
+			var t=setTimeout(function(){$("#tS3").thumbnailScroller({scrollerType:"clickButtons",scrollerOrientation:"vertical",scrollSpeed:2,scrollEasing:"easeOutCirc",scrollEasingAmount:600,acceleration:4,scrollSpeed:800,noScrollCenterSpace:10,autoScrolling:0,autoScrollingSpeed:2000,autoScrollingEasing:"easeInOutQuad",autoScrollingDelay:500});},500)
 			
 
 		

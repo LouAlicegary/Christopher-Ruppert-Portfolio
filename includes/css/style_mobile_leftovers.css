@@ -1,0 +1,121 @@
+
+#logo {
+	width: 8em;
+	min-height: 8em;	
+}
+
+.profile_thumb {
+	display: inline-block;
+	width: 25%;
+	height: 35%;
+	margin: 0 auto;
+}
+
+.profile_thumb img {
+	width: 100px;
+	height: 100px;
+}
+
+#footer {
+	text-align: center;
+	margin: 0 auto;
+}
+
+#slideshow {
+	width: 600px;
+	height: 90%;
+	/*ertical-align: top*/
+	/*align: center;*/
+	/*background-color: purple;*/
+	/*text-align: center;*/
+	/*height: 600px; line-height: 600px; text-align: center;*/
+	position: relative;
+}
+
+#slideshow img {
+	height: auto;
+	max-width: 600px;
+	max-height: 90%;
+	margin: 0 auto;
+	/*text-align: center;
+	vertical-align: middle;*/
+}
+
+#tagline {
+}
+
+#header div {
+	display: inline-block;
+	width: 25%;
+}
+
+#header form {
+	width: 600px;
+}
+
+.thumbnail {
+	margin-bottom: 0px;
+}
+
+.thumbnail img {
+	width: 80px;
+}
+
+.spacer {
+	/*font-size: 2em;*/
+	height: 25px;	
+	/*background-color: lightgray;*/
+}
+
+.section_header:hover {
+	cursor: pointer;
+}
+
+#credits {
+	position: fixed;
+	bottom: 10px;
+	margin: 0 auto;
+	width: 250px;
+	vertical-align: bottom;
+	font-size: .35em;
+	/*background-color: lightgreen;*/
+}
+
+.image_collection {
+}
+
+.image_location {
+}
+
+.admin_thumbnail_image {
+	width: 50px;	
+}
+
+#terms {
+	margin-top: 5em;
+}
+
+#terms p {
+	margin-top: 1em;
+}
+
+table#admin_table, #admin_table td {
+	border: 1px solid black;
+}
+
+.thinborder {
+	border: 1px solid black;
+	border-radius: .5em;
+	radius: 1em;
+	-moz-border-radius: .5em;
+	-webkit-border-radius: .5em;
+	margin: .5em;
+	padding: .5em;
+}
+
+.updated {
+	color: green;
+	margin-left: 5em;
+	margin-right: 5em;
+}
+

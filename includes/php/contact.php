@@ -2,7 +2,7 @@
 
 <div class="contact_pane">
 	<div class="contact_cell">
-		<a href="http://www.facebook.com/ruppertchristopher">
+		<a href="https://www.facebook.com/pages/Christopher-Ruppert/306521606089265">
 			<img src="http://www.loualicegary.com/ruppert/imgs/96_black_facebook.png" alt="" />
 		</a>
 	</div>
@@ -30,7 +30,7 @@
 	</div>
 	
 	<div class="contact_cell">
-		<p>+1 (503) 867-5309</p>
+		<p>+1 (443) 854-1448</p>
 	</div>
 </div>
 

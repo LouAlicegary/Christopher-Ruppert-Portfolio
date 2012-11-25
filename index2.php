@@ -1,4 +1,12 @@
 <?php 
+	$ua = strtolower($_SERVER['HTTP_USER_AGENT']);
+	if(stripos($ua,'android') !== false) { // && stripos($ua,'mobile') !== false) {
+  		header('Location: http://christopherruppert.com/index_mobile.php');
+  		exit();
+	}
+?>
+
+<?php 
 	$artist = 'chris';
 	$name = "Christopher Ruppert";
 	$first_name = "chris";
@@ -64,12 +72,12 @@
 			<div id='display_pane' class='display_pane'>
 				<div class='spacer'>&nbsp;</div>
 				<div id='slideshow' class='slideshow'>
-					<img src='http://www.christopherruppert.com/imgs/chris/original_paintings/02_mabel.jpg' />
-					<img src='http://www.christopherruppert.com/imgs/chris/master_copies/03_picasso_the_embrace.jpg' />
-					<img src='http://www.christopherruppert.com/imgs/chris/sculpture_and_performance/09_brothers_breton.jpg'   />
-					<img src='http://www.christopherruppert.com/imgs/chris/tattoo/10_Peony_for_Meadow.jpg'  />
-					<img src='http://www.christopherruppert.com/imgs/chris/early_work/bullfight.jpg' />
-					<img src='http://www.christopherruppert.com/imgs/chris/recent_work/01_yellow_skull.jpg' />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/original_paintings/02_mabel.jpg' />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/master_copies/03_picasso_the_embrace.jpg' />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/sculpture_and_performance/09_brothers_breton.jpg'   />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/tattoo/10_Peony_for_Meadow.jpg'  />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/early_work/bullfight.jpg' />
+					<img src='http://www.loualicegary.com/ruppert/imgs/chris/recent_work/01_yellow_skull.jpg' />
 				</div>
 			</div>
 		
