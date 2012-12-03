@@ -167,7 +167,19 @@ $(window).load(function() {
 		$('.section_header').css("color","#000000");
 		$(this).css("color","#BB0000");
 		
-		$('#display_pane').load('includes/php/contact.php');
+	
+		
+		$('#display_pane').load('includes/php/contact_mobile.php');
+		$('#display_pane').hide();
+		setTimeout( function(){ 
+			fonth = $(window).height()/50 + "px";
+			lineh = $(window).height()/20 + "px";
+			
+			$("#commissions").css({"line-height":lineh});
+			$("#commissions").css({"font-size":fonth});	
+			$('#display_pane').show();
+		} , 500);
+
 	});
 
 	$('#signature').live(click_event,function(event) {

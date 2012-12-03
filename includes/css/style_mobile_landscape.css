@@ -1,0 +1,350 @@
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	font-family: 'Open Sans Condensed';
+	height: 100%;
+	width: 100%;
+	margin: 0px;	
+	font-size: 62.5%;
+	-webkit-text-size-adjust: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	display: inline;
+	line-height: 1.2em;
+	font-size: 95%;
+	margin: 0px;	
+}
+
+a {
+	/*float: none;*/
+	display: block;
+}
+
+ul, li {
+	display: inline;
+	float: left;
+	border: 0px;
+	padding: 0px;	
+}
+
+a:link {
+	text-decoration: none; 
+	color: #000000;
+	outline: none;
+} 
+
+img {
+	border: 0px;
+	border-style: none;
+	display: inline;
+	margin: 0px;
+} 
+
+#main {
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+	/*position: relative;
+	margin-left: 20px;*/
+	display: inline;
+	text-align: center;
+}
+
+#sig_pane {
+	height: 30%;
+	min-height: 30%;
+	max-height: 30%;
+	width: 30%;
+	text-align: center;
+	/*position: relative;*/
+	display: inline; /*inline-block;*/
+	float: left;
+	background-color: white;
+	vertical-align: top;
+	background-image: url('../../imgs/ruppert_signature.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+
+#signature {
+	height: 100%;
+	width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	text-align: center;
+	display: block; /*probably not necessary*/
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    /*font-size: 1.6em;
+	font-weight: bold;*/
+	/*width: 70%;*/
+	/*line-height: 50px;
+	background-color: black;*/
+
+}
+
+
+
+
+#section_pane {
+	width: 30%; /*width: 260px;*/
+	height: 70%;
+	max-height:70%;
+	min-height:70%;
+	text-align: center;
+	font-family: 'Open Sans Condensed';
+	color: #000000;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	clear: left;
+	/*clear: both;*/
+	display: block;
+	/*vertical-align: top;*/
+	/*line-height: .5em;*/
+	/*font-weight: 200;*/
+	background-color: white;
+	color: black;
+}
+
+.section_header {
+	width: 100%;
+	height: 12.5%;
+	max-height: 12.5%;
+	min-height: 12.5%;
+	/*font-size: 4em;*/
+	/*line-height: 2.5em;*/
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	/*position: relative;*/
+	/*display: inline;*/ /*inline-block;*/
+	/*background-color: lightgray;*/
+}
+
+
+
+
+#artwork_pane {
+	width: 70%; /*width: 260px;*/
+	height: 100%;
+	/*max-height:100%;*/
+	/*min-height:100%;*/
+	text-align: center;
+	font-family: 'Open Sans Condensed';
+	color: #000000;
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	/*vertical-align: top;*/
+	/*line-height: .5em;*/
+	/*font-weight: 200;*/
+	background-color: white;
+	color: black;
+	/*display: none;*/
+}
+
+#slideshow img {
+	text-align: center;
+	/*max-width: 100%;
+	max-height: 100%;*/
+}
+
+
+#slider {
+	height: 100%; 
+}
+
+#slider img {
+	/*width: auto;
+	height: auto;
+	max-height: 100%;
+	max-width: 100%;*/
+
+}
+
+
+#dar {
+	min-width:100%;
+    background-color:black;
+    color:#ffffff;
+    border-color:#000000;
+    display:none; 
+    font-size:2em;
+    text-align:right;
+    opacity: .4;
+
+}
+
+
+#bar {
+	min-width:100%;
+    background-color:black;
+    color:#ffffff;
+    border-color:#000000;
+    display:none; 
+    font-size:2em;
+    text-align:right;
+    opacity: .8;
+
+}
+
+
+#floating_button {
+	text-align: center;
+	/*background-image: url('../../imgs/info_white.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position:right;
+	margin: 0px; /* 0px 20px */
+	background: #ffffff url('../../imgs/info_white.png') no-repeat center;
+	background-size: contain;
+	opacity: .2;
+	z-value: 99999;
+	position: absolute;
+	/*top: 100px;
+	left: 100px;
+	height: 100px;
+	width: 100px;*/
+	/*height: 100%;
+	width: 15%;
+	min-width: 15%;
+	max-width: 15%;*/
+	/*position: relative;*/
+	/*display: inline; /*inline-block;*/
+	/*float: left;*/
+	/*background-color: white;*/	
+}
+
+
+
+
+
+#commissions {
+	height: 30%;
+	min-height: 30%
+	width: 100%;
+	vertical-align: middle;	
+	margin-top: 5%;
+	line-height: 1.5em;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#contact_buttons {
+	height: 70%;
+	width: 100%;	
+}
+
+.contact_pane {
+	/*width: 600px;
+	height: 100px;
+	line-height: 100px;*/
+	
+	text-align: center;
+	display: inline;
+	vertical-align: middle;
+	/*float: left;*/
+	/*align: center;*/
+	/*background-color: purple;*/
+	/*text-align: center;*/
+	/*height: 600px; line-height: 600px; text-align: center;*/
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.contact_cell {
+	/*width: 600px;
+	height: 100px;
+	line-height: 100px;*/
+	display: inline;
+	vertical-align: middle;
+	text-align: center;
+	float: none;
+	/*float: left;*/
+	/*ertical-align: top*/
+	/*align: center;*/
+	/*background-color: purple;*/
+	/*text-align: center;*/
+	/*height: 600px; line-height: 600px; text-align: center;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.contact_cell p {
+	/*width: 600px;*/
+	/*height: 100px;
+	line-height: 100px;*/
+	display: block;
+	vertical-align: middle;
+	font-size: 36px;
+	float: none;
+	font-weight: bold;
+	/*ertical-align: top*/
+	/*align: center;*/
+	/*background-color: purple;*/
+	/*text-align: center;*/
+	/*height: 600px; line-height: 600px; text-align: center;*/
+}
+
+
+.contact_pane img, #one img, #two img, #three img, #four img {
+	height: 60%;
+	/*max-width: 600px;
+	max-height: 90%;*/
+	text-align: center;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	/*display: block;*/
+	vertical-align: middle;
+}
+
+
+
+
+#one {
+	height: 45%; /*200px*/
+	min-height: 45%; /*200px*/
+	width: 50%;
+	/*background-color: green;*/	
+	display: inline;
+	float: left;
+}
+
+#two {
+	height: 45%; /*200px*/
+	min-height: 45%; /*200px*/
+	width: 50%;
+	/*background-color: yellow;*/	
+	display: inline;
+	float: left;
+}
+
+#three {
+	height: 45%; /*200px*/
+	min-height: 45%; /*200px*/
+	width: 50%;
+	/*background-color: blue;*/	
+	display: inline;
+	float: left;
+}
+
+#four {
+	height: 45%; /*200px*/
+	min-height: 45%; /*200px*/
+	width: 50%;
+	/*background-color: red;*/	
+	display: inline;
+	float: left;	
+	vertical-align: middle;
+}
+

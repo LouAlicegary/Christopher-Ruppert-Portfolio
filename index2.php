@@ -4,6 +4,11 @@
   		header('Location: http://christopherruppert.com/index_mobile.php');
   		exit();
 	}
+	if(stripos($ua,'iP') !== false) { // && stripos($ua,'mobile') !== false) {
+  		header('Location: http://christopherruppert.com/index_ipad.php');
+  		exit();
+	}
+	
 ?>
 
 <?php 

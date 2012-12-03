@@ -1,16 +1,22 @@
+
 html {
 	height: 100%;
+	width: 100%;
 }
 
 body {
 	font-family: 'Open Sans Condensed';
 	height: 100%;
+	width: 100%;
 	margin: 0px;	
+	font-size: 62.5%;
+	-webkit-text-size-adjust: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	display: inline;
-	line-height: 1.2em;	
+	line-height: 1.2em;
+	margin: 0px;	
 }
 
 a {
@@ -32,23 +38,26 @@ a:link {
 } 
 
 img {
+	border: 0px;
 	border-style: none;
 	display: inline;
+	margin: 0px;
 } 
 
 #main {
 	height: 100%;
 	min-height: 100%;
+	width: 100%;
 	/*position: relative;
 	margin-left: 20px;*/
 	display: inline;
 	text-align: center;
 }
 
-#top_pane {
+#sig_pane {
 	height: 30%;
-	min-height:30%;
-	max-height:30%;
+	min-height: 30%;
+	max-height: 30%;
 	width: 100%;
 	text-align: center;
 	/*position: relative;*/
@@ -59,43 +68,155 @@ img {
 }
 
 
+#signature {
+	height: 100%;
+	/*width: 30%;*/
+	min-height: 100%;
+	max-height: 100%;
+	text-align: center;
+	display: block; /*probably not necessary*/
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    background-image: url('../../imgs/ruppert_signature.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position:center;
+    /*font-size: 1.6em;
+	font-weight: bold;*/
+	/*width: 70%;*/
+	/*line-height: 50px;
+	color: black;*/
+}
+
+#top_pane {
+	height: 10%;
+	/*min-height:10%;*/
+	max-height:10%;
+	width: 100%;
+	text-align: center;
+	/*position: relative;*/
+	display: none;
+	float: left;
+	color: white;
+	background-color: black;
+	/*vertical-align: top;*/
+}
 
 
 .top_nav_icon {
 	height: 100%;
+	width: 15%;
+	min-width: 15%;
+	/*max-width: 15%;*/
 	text-align: center;
 	/*position: relative;*/
 	display: inline; /*inline-block;*/
 	float: left;
 	background-color: black;
-	margin: 0px 20px;
+	margin: 0px; /* 0px 20px */
+}
+
+/*.top_nav_icon*/ 
+#home_icon {
+	height: 100%;
+	width: 15%;
+	min-width: 15%;
+	/*max-width: 15%;*/
+	text-align: center;
+	/*position: relative;*/
+	display: inline; /*inline-block;*/
+	float: left;
+	/*background-color: black;*/
+	background-image: url('../../imgs/home.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position:left;
+	margin: 0px; /* 0px 20px */
+}
+
+#info_icon {
+	height: 100%;
+	width: 15%;
+	min-width: 15%;
+	/*max-width: 15%;*/
+	text-align: center;
+	/*position: relative;*/
+	display: inline; /*inline-block;*/
+	float: left;
+	/*background-color: black;*/
+	background-image: url('../../imgs/home.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position:left;
+	margin: 0px; /* 0px 20px */
+}
+
+#blank_icon {
+	height: 100%;
+	width: 15%;
+	min-width: 15%;
+	/*max-width: 15%;*/
+	text-align: center;
+	/*position: relative;*/
+	display: inline; /*inline-block;*/
+	float: left;
+	background-color: black;
+	margin: 0px; /* 0px 20px */
+}
+
+
+#home_icon img {
+	height: 100%;
+	max-height:100%;
+	text-align: center;
+	/*position: relative;*/
+	display: inline; /*inline-block;*/
+	float: left;
+	background-color: black;
+	margin: 0px; /* 0px 20px */
+}
+
+#info_icon img {
+	height: 100%;
+	max-height: 100%;
+	text-align: center;
+	/*position: relative;*/
+	display: inline; /*inline-block;*/
+	float: right;
+	background-color: black;
+	margin: 0px; /* 0px 20px */
+}
+
+#blank_icon img {
+	height: 100%;
+	max-height: 100%;
+	text-align: center;
+	/*position: relative;*/
+	display: inline; /*inline-block;*/
+	float: right;
+	background-color: black;
+	margin: 0px; /* 0px 20px */
 }
 
 #top_nav_writing {
 	height: 100%;
-	/*width: 80%;*/
-	/*text-align: center;*/
-	/*position: relative;*/
+	min-width: 70%;
+	max-width: 70%;
+	width: 70%;
+	text-align: center;
 	display: inline; /*inline-block;*/
 	float: left;
 	background-color: black;
-	text-align: center;
-	vertical-align: top;
+	margin: 0px;
 }
 
-#section_pane, #thumbnails, #thumbnail_pane, #center_pane, #display_pane, #details_pane {
-	/*position: relative;*/
-	/*display: inline; /*inline-block;*/
-	/*float: left;*/
-	/*display: inline; /* leading asterisk IS correct */
-	/*display: inline;*/
-	/*text-align: center;*/
-}
 
 #section_pane {
 	width: 100%; /*width: 260px;*/
 	height: 70%;
 	max-height:70%;
+	min-height:70%;
 	text-align: center;
 	font-family: 'Open Sans Condensed';
 	color: #000000;
@@ -111,10 +232,11 @@ img {
 
 .section_header {
 	width: 100%;
-	height: 1%;
-	max-height: 20%;
-	min-height: 1%;
-	font-size: 1em;
+	height: 12.5%;
+	max-height: 12.5%;
+	min-height: 12.5%;
+	/*font-size: 4em;*/
+	/*line-height: 2.5em;*/
 	float: left;
 	margin: 0px;
 	padding: 0px;
@@ -123,26 +245,38 @@ img {
 	/*background-color: lightgray;*/
 }
 
-#signature {
-	/*height: 30%;
-	width: 30%;
-	min-height: 30%;
-	max-height: 30%;*/
+
+
+
+#artwork_pane {
+	width: 100%; /*width: 260px;*/
+	height: 90%;
+	max-height:90%;
+	min-height:90%;
 	text-align: center;
-	display: block; /*probably not necessary*/
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
-    /*font-size: 1.6em;
-	font-weight: bold;*/
-	/*width: 70%;*/
-	/*line-height: 50px;
-	color: black;*/
+	font-family: 'Open Sans Condensed';
+	color: #000000;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	/*vertical-align: top;*/
+	/*line-height: .5em;*/
+	/*font-weight: 200;*/
+	background-color: black;
+	color: white;
+	display: none;
 }
 
+#slider {
+	height: 100%; /*width: 260px;*/
+}
 
-
-
+#slider img {
+	/*height: 200%;
+	width: 200%;*/
+	max-height: 100%;
+	max-width: 100%;
+}
 
 
 
@@ -210,9 +344,12 @@ img {
 	vertical-align: middle;
 }
 
+
+
+
 #one {
-	height: 50%; /*200px*/
-	min-height: 50%; /*200px*/
+	height: 45%; /*200px*/
+	min-height: 45%; /*200px*/
 	width: 50%;
 	/*background-color: green;*/	
 	display: inline;
@@ -220,8 +357,8 @@ img {
 }
 
 #two {
-	height: 50%; /*200px*/
-	min-height: 50%; /*200px*/
+	height: 45%; /*200px*/
+	min-height: 45%; /*200px*/
 	width: 50%;
 	/*background-color: yellow;*/	
 	display: inline;
@@ -229,8 +366,8 @@ img {
 }
 
 #three {
-	height: 50%; /*200px*/
-	min-height: 50%; /*200px*/
+	height: 45%; /*200px*/
+	min-height: 45%; /*200px*/
 	width: 50%;
 	/*background-color: blue;*/	
 	display: inline;
@@ -238,8 +375,8 @@ img {
 }
 
 #four {
-	height: 50%; /*200px*/
-	min-height: 50%; /*200px*/
+	height: 45%; /*200px*/
+	min-height: 45%; /*200px*/
 	width: 50%;
 	/*background-color: red;*/	
 	display: inline;
@@ -249,7 +386,7 @@ img {
 
 #dar {
 	min-width:100%;
-    background-color:#000000;
+    background-color:black;
     color:#ffffff;
     border-color:#000000;
     display:none; 
@@ -257,8 +394,4 @@ img {
     text-align:right;
     opacity: .4;
 
-}
-
-.ui-resizable-disabled, .ui-resizable-handle { 
-	display: none; 
 }
