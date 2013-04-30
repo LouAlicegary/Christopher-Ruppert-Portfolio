@@ -67,7 +67,7 @@ $(document).ready(function() {
 			
 			$('#artwork_pane').hide();
 			setTimeout( function(){ 
-				fonth = $(window).height()/50 + "px";
+				fonth = $(window).height()/30 + "px";
 				lineh = $(window).height()/20 + "px";
 				
 				$("#commissions").css({"line-height":lineh});

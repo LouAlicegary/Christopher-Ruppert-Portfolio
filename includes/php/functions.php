@@ -13,6 +13,7 @@
 
 /// MAIN SWITCH - this is what makes the file work either as an php include or js ajax call. ///
 /// if it's not submitted then this file does nothing
+
 if ((isset($_POST['submitted'])) || (isset($_GET['submitted']))) {
 
 	//convert POST vars for easy use, should have been passed in properly
@@ -58,6 +59,7 @@ if ((isset($_POST['submitted'])) || (isset($_GET['submitted']))) {
 // pull all thumbnails for a section
 // 	section name must have no space or special chars.
 /////////////////
+
 function getThumbnails($section_name, $starting_pic) {
 
 	global $conn;
@@ -67,8 +69,9 @@ function getThumbnails($section_name, $starting_pic) {
 	$base_path = '/imgs/chris/' . str_replace(" ","_",$section_name);
 	$path_array = explode("/",$base_path);
 	
-	$query = "select i.item_filename FROM sections s INNER JOIN items i ON i.groups = s.cat_id INNER JOIN item_details d ON i.id = d.id where name = '$section_name' order by d.display_order";
-	$result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));	
+	///////2013.04.16/////$query = "select i.item_filename FROM sections s INNER JOIN items i ON i.groups = s.cat_id INNER JOIN item_details d ON i.id = d.id where name = '$section_name' order by d.display_order";
+	$query = "select w.item_filename FROM sections s INNER JOIN works w ON w.groups = s.cat_id where name = '$section_name' order by w.display_order";
+    $result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));
 	$num_rows = mysqli_num_rows($result);
 
 	
@@ -182,8 +185,9 @@ function getSections ($artist) {
 
 		$returnString = "";
 		//get section names from the db
-		$query = "SELECT s.name FROM artists a INNER JOIN sections s ON a.id = s.owner WHERE a.name = '$artist' and s.active = 1 order by s.sec_order";
-		$result  = mysqli_query($conn,$query) or die("Query Error ($query)<br />" . mysqli_error($conn));
+		//////////2013.04.16///////$query = "SELECT s.name FROM artists a INNER JOIN sections s ON a.id = s.owner WHERE a.name = '$artist' and s.active = 1 order by s.sec_order";
+		$query = "SELECT s.name FROM sections s WHERE s.active = 1 order by s.sec_order";
+        $result  = mysqli_query($conn,$query) or die("Query Error ($query)<br />" . mysqli_error($conn));
 		$returnString .= "<div class='sections'>";
 		while ($row = mysqli_fetch_row($result)) { 
 			$cleanedSectionName = $row[0];
@@ -208,6 +212,7 @@ function getSections ($artist) {
 //////////////////////////////
 // retrieve details by image name
 //////////////////////////////
+
 function getDetails($image_name) {
 
 	global $conn;
@@ -222,8 +227,11 @@ function getDetails($image_name) {
 	//echo sizeOf($path_array) . ;
 	//must customize for chrises db
 	//$query = "SELECT i.item_filename FROM artists a INNER JOIN sections s ON a.id = s.owner INNER JOIN items i ON i.groups = s.cat_id WHERE a.name = '$artist'";
-	$query = "SELECT d.title, d.create_date, d.medium, d.dimensions, d.collection, d.location, d.explanation, d.master, d.subtitle
-              FROM items i INNER JOIN item_details d ON i.id = d.id WHERE item_filename = \"$image_name\"";
+	//////2013.04.16///////////////$query = "SELECT d.title, d.create_date, d.medium, d.dimensions, d.collection, d.location, d.explanation, d.master, d.subtitle FROM items i INNER JOIN item_details d ON i.id = d.id WHERE item_filename = \"$image_name\"";
+    $query = "SELECT title, create_date, medium, dimensions, collection, location, explanation, master, subtitle FROM works WHERE item_filename = \"$image_name\"";
+
+
+
 
 	$result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));
 	//echo mysqli_num_rows($result);

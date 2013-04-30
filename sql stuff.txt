@@ -1,0 +1,21 @@
+// MERGING TWO TABLES INTO A NEW ONE
+
+insert into works
+select 
+items.id,
+items.item_filename,
+items.groups,
+        item_details.title,
+        item_details.subtitle,
+        item_details.location,
+        item_details.commission,
+        item_details.medium,
+        item_details.dimensions,
+        item_details.create_date,
+        item_details.display_order,
+        item_details.collection,
+        item_details.explanation,
+        item_details.master
+from items, item_details
+where 
+       items.id = item_details.id;

@@ -1,8 +1,9 @@
 <div id="commissions">
-Christopher is available for commission work in a wide range of mediums. <br>Along with a recently added tattoo practice, he has been working professionally as a painter and sculptor for over twenty years. <br>All commissions begin with a discussion of your ideas, preferred medium and budget. <br>Feel free to contact him via email to begin the process.<br>Thank you for your interest.	
+Christopher is available for commission work in a wide range of mediums. In addition to his current tattoo practice, he has been working professionally as a painter and sculptor for over twenty years. All commissions begin with a discussion of your ideas, preferred medium and budget. Feel free to contact him via email to begin the process. Thank you for your interest.<br><br><a href="mailto:c.ruppert@christopherruppert.com">c.ruppert@christopherruppert.com</a>
 </div>
-<div id="contact_buttons">
 	
+</div>
+<!--	
 	<div id="one">
 		<div class="contact_pane">
 			<div class="contact_cell">
@@ -42,5 +43,4 @@ Christopher is available for commission work in a wide range of mediums. <br>Alo
 			</div>
 		</div>		
 	</div>
-	
-</div>
+-->

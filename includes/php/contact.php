@@ -1,5 +1,9 @@
-<div class='spacer'>&nbsp;</div>
-
+<div id="commissions">
+Christopher is available for commission work in a wide range of mediums. In addition to his current tattoo practice, he has been working professionally as a painter and sculptor for over twenty years. All commissions begin with a discussion of your ideas, preferred medium and budget. Feel free to contact him via email to begin the process. Thank you for your interest.<br><br><a href="mailto:c.ruppert@christopherruppert.com">c.ruppert@christopherruppert.com</a>
+</div>
+	
+</div>
+<!--
 <div class="contact_pane">
 	<div class="contact_cell">
 		<a href="https://www.facebook.com/pages/Christopher-Ruppert/306521606089265">
@@ -43,8 +47,10 @@
 	</div>
 </div>
 
+-->
+
 <div class="contact_pane">
 	<div class="contact_cell">
-		<p style="font-size: 16px">[Site Design: Steven Hughes / Lou Alicegary (2012)]</p>
+		<p style="font-size: 16px">[Site Design: Lou Alicegary (2012-2013)]</p>
 	</div>
 </div>

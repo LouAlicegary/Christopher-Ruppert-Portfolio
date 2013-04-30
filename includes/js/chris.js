@@ -172,8 +172,8 @@ $(window).load(function() {
 		$('#display_pane').load('includes/php/contact_mobile.php');
 		$('#display_pane').hide();
 		setTimeout( function(){ 
-			fonth = $(window).height()/50 + "px";
-			lineh = $(window).height()/20 + "px";
+			fonth = $(window).height()/30 + "px";
+			lineh = $(window).height()/15 + "px";
 			
 			$("#commissions").css({"line-height":lineh});
 			$("#commissions").css({"font-size":fonth});	

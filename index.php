@@ -60,7 +60,7 @@
 				<!--<div class='spacer'>&nbsp;</div>-->
 				<!--<div id='credits'>
 					site design by<br />
-					steve hughes / lou alicegary (2012)
+					steve hughes / lou alicegary (2013)
 				</div>-->
 			</div>
 		
@@ -77,7 +77,7 @@
 					<img src='http://www.christopherruppert.com/imgs/chris/original_paintings/12_scarlet.jpg' />
 					<img src='http://www.christopherruppert.com/imgs/chris/master_copies/03_picasso_the_embrace.jpg' />
 					<img src='http://www.christopherruppert.com/imgs/chris/sculpture_and_performance/09_brothers_breton.jpg'   />
-					<img src='http://www.christopherruppert.com/imgs/chris/tattoo/08_Adams_Raspberries.jpg'  />
+					<img src='http://www.christopherruppert.com/imgs/chris/tattoo/09_Adams_Raspberries.jpg'  />
 					<img src='http://www.christopherruppert.com/imgs/chris/recent_work/01_yellow_skull.jpg' />
 				</div>
 			</div>

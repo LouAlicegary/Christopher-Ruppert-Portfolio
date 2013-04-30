@@ -229,13 +229,14 @@ img {
 
 
 #commissions {
-	height: 30%;
-	min-height: 30%
-	width: 100%;
+	height: 85%;
+	width: 80%;
 	vertical-align: middle;	
-	margin-top: 5%;
-	line-height: 1.5em;
-	font-size: 1.5em;
+	margin-top: 15%;
+	margin-left: 10%;
+	margin-right: 10%;
+	line-height: 3em;
+	font-size: 2em;
 	text-align: center;
 }
 

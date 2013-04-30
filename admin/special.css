@@ -1,0 +1,6 @@
+.row_selected {
+    background-color: #000000;
+    font-weight: bold;
+    color: #ff0000;
+    opacity: .5;
+}

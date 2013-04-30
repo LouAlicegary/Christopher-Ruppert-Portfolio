@@ -270,6 +270,22 @@ img {
 }
 
 
+#commissions {
+	height: 85%;
+	width: 80%;
+	vertical-align: middle;	
+	margin-top: 15%;
+	margin-left: 10%;
+	margin-right: 10%;
+	line-height: 3em;
+	font-size: 2em;
+	text-align: center;
+}
+
+#contact_buttons {
+	height: 70%;
+	width: 100%;	
+}
 
 .contact_pane {
 	/*width: 600px;

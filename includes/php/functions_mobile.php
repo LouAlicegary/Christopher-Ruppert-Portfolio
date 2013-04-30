@@ -2,7 +2,7 @@
 
 	require_once ('connect.php');
 
-//THIS PHP AJAX CONNECTION IS NECESSARY SO THAT JAVASCRIPT (LOCALLY RUN) CAN INTERACT WITH SQL (ON SERVER)
+// THIS PHP AJAX CONNECTION IS NECESSARY SO THAT JAVASCRIPT (LOCALLY RUN) CAN INTERACT WITH SQL (ON SERVER)
 /// MAIN SWITCH - this is what makes the file work either as an php include or js ajax call. ///
 /// if it's not submitted then this file does nothing
 
@@ -39,8 +39,10 @@ function getThumbnails($section_name, $screen_height, $screen_width) {
 	$base_path = '/imgs/chris_big/' . str_replace(" ","_",$section_name);
 	$path_array = explode("/",$base_path);
 	
-	$query = "select i.item_filename FROM sections s INNER JOIN items i ON i.groups = s.cat_id INNER JOIN item_details d ON i.id = d.id where name = '$section_name' order by d.display_order";
-	$result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));	
+	//////2013.04.16////$query = "select i.item_filename FROM sections s INNER JOIN items i ON i.groups = s.cat_id INNER JOIN item_details d ON i.id = d.id where name = '$section_name' order by d.display_order";
+	$query = "select w.item_filename FROM sections s INNER JOIN works w ON w.groups = s.cat_id where name = '$section_name' order by w.display_order";
+    
+    $result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));
 	$num_rows = mysqli_num_rows($result);
 	
 	$screen_ratio = $screen_width / $screen_height;
@@ -81,7 +83,8 @@ function getSections ($artist) {
 		$returnString = "";
 		
 		//get section names from the db
-		$query = "SELECT s.name FROM artists a INNER JOIN sections s ON a.id = s.owner WHERE a.name = '$artist' and s.active = 1 order by s.sec_order";
+		///////2013.04.16/////$query = "SELECT s.name FROM artists a INNER JOIN sections s ON a.id = s.owner WHERE a.name = '$artist' and s.active = 1 order by s.sec_order";
+        $query = "SELECT s.name FROM sections s WHERE s.active = 1 order by s.sec_order";
 		$result  = mysqli_query($conn,$query) or die("Query Error ($query)<br />" . mysqli_error($conn));
 		//$returnString .= "<div class='sections'>";
 		while ($row = mysqli_fetch_row($result)) { 
@@ -109,8 +112,9 @@ function getDetails($image_name) {
 	//$main_img_path = $thumb_path . "/main";	
 	//$path_array = explode("/",$base_path);
 	
-	$query = "SELECT d.title, d.create_date, d.medium, d.dimensions, d.collection, d.location, d.explanation, d.master, d.subtitle FROM items i INNER JOIN item_details d ON i.id = d.id WHERE item_filename = \"$image_name\"";
-	$result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));
+	///////2013.04.16////$query = "SELECT d.title, d.create_date, d.medium, d.dimensions, d.collection, d.location, d.explanation, d.master, d.subtitle FROM items i INNER JOIN item_details d ON i.id = d.id WHERE item_filename = \"$image_name\"";
+	$query = "SELECT title, create_date, medium, dimensions, collection, location, explanation, master, subtitle FROM works WHERE item_filename = \"$image_name\"";
+    $result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));
 	
 	while ($row = mysqli_fetch_row($result)) {
 		$returnString .= "<div class='image_title'>" . $row[0] . "</div>"  

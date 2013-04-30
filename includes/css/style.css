@@ -308,13 +308,12 @@ table#admin_table, #admin_table td {
 
 
 #commissions {
-	height: 30%;
-	min-height: 30%
+	height: 100%;
 	width: 100%;
 	vertical-align: middle;	
-	margin-top: 5%;
-	/*line-height: 1.5em;
-	font-size: 1.5em;*/
+	margin-top: 15%;
+	line-height: 3em;
+	font-size: 2em;
 	text-align: center;
 }
 
