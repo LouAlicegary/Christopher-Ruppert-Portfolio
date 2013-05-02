@@ -38,13 +38,15 @@ $(document).ready(function() {
 				(new Image).src = image_path;				
 			}
 
-			var t=setTimeout(function(){$("#tS3").thumbnailScroller({scrollerType:"clickButtons",scrollerOrientation:"vertical",scrollSpeed:2,scrollEasing:"easeOutCirc",scrollEasingAmount:600,acceleration:4,scrollSpeed:800,noScrollCenterSpace:10,autoScrolling:0,autoScrollingSpeed:2000,autoScrollingEasing:"easeInOutQuad",autoScrollingDelay:2000});},2000)
+			setTimeout(function() {
+				$("#tS3").thumbnailScroller({scrollerType:"clickButtons",scrollerOrientation:"vertical",scrollSpeed:2,scrollEasing:"easeOutCirc",scrollEasingAmount:600,acceleration:4,scrollSpeed:800,noScrollCenterSpace:10,autoScrolling:0,autoScrollingSpeed:2000,autoScrollingEasing:"easeInOutQuad",autoScrollingDelay:2000});
+			}, 5000);
 			
+			//show first image of section
 			var list = tds[0].innerHTML;
 			var beg=list.search("src=");
 			var end=list.search("\">");
 			var alt_string = list.substr(beg+5,end-beg-5);
-
 			var image_path = alt_string; //$(this).attr('src');
 			image_path = image_path.replace('/thumbs','');
 			$('#display_pane').append("<div class='spacer'>&nbsp;</div>");
@@ -62,7 +64,7 @@ $(document).ready(function() {
 				details.append(data);
 			});		
 			
-			
+			// Position details in correct location
 			$("#big_image").load(function() {
         		var big_wid = $('#display_pane').width();
         		var small_wid = $(this).width();
