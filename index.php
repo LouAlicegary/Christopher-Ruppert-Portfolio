@@ -24,20 +24,15 @@
 		<title> <?php echo $name ?> </title>
 		
 		<link type='text/css' rel='stylesheet' href='includes/css/style.css'>
+		<link href="jquery.thumbnailScroller.css" rel="stylesheet" type="text/css" />
 		<link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Raleway|Open+Sans+Condensed:300|Tulpen+One' rel='stylesheet' type='text/css'>
 						
 		<script type='text/javascript' language='javascript' src='includes/js/jquery-1.7.2.min.js'></script>
 		<script type='text/javascript' language='javascript' src='includes/js/chris.js'></script>
 		<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
 		
-
-		<link href="jquery.thumbnailScroller.css" rel="stylesheet" type="text/css" />
 		<script src="includes/js/jquery-ui-1.8.13.custom.min.js"></script>
 		<script src="includes/js/jquery.thumbnailScroller.js"></script>
-		
-
-
-		
 		
 		<script type="text/javascript">
 			$(document).ready(function() {

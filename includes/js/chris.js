@@ -3,18 +3,16 @@ $(document).ready(function() {
 	
 	//get the sections
 	$.post('includes/php/functions.php',{'submitted':'submitted','reason':'sections','artist':'chris'},function(data){
-		//alert(data);
 		$('#section_pane').append(data);
 	});
 
-	var ua = navigator.userAgent,
-    	click_event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+	var ua = navigator.userAgent;
+    var click_event = (ua.match(/iPad/i)) ? "touchstart" : "click";
     	
 	
 	//get the thumbnails if section name clicked on
 	$('.section_header').live(click_event,function(event) {
 
-		//window.location.reload();
 		$('#thumbnail_pane').empty();
 		$('#display_pane').empty();
 		$('#details').empty();
@@ -28,12 +26,6 @@ $(document).ready(function() {
 
 			$('#thumbnail_pane').append(data);
 			
-			//$('#thumbnail_pane').append('<script>$("#tS3").thumbnailScroller({scrollerType:"clickButtons",scrollerOrientation:"vertical",scrollSpeed:2,scrollEasing:"easeOutCirc",scrollEasingAmount:600,acceleration:4,scrollSpeed:800,noScrollCenterSpace:10,autoScrolling:0,autoScrollingSpeed:2000,autoScrollingEasing:"easeInOutQuad",autoScrollingDelay:500});</script>');
-			//alert(data);
-
-
-			//var list = document.getElementById("thumbnail_pane").innerHTML; //firstChild.value; //innerHTML; //childNodes[0].innerHTML; //.childNodes[1].childNodes[0].innerHTML; //.nodeValue;  //childNodes[0].childNodes[0]
-
 			var tds = document.getElementById("thumbnail_pane").getElementsByTagName("a");
 			
 			for (ct=0; ct < tds.length; ct++) {
@@ -43,18 +35,12 @@ $(document).ready(function() {
 				var alt_string = list.substr(beg+5,end-beg-5);
 	
 				var image_path = alt_string;
-				//alert(image_path);
 				(new Image).src = image_path;				
 			}
 
 			var t=setTimeout(function(){$("#tS3").thumbnailScroller({scrollerType:"clickButtons",scrollerOrientation:"vertical",scrollSpeed:2,scrollEasing:"easeOutCirc",scrollEasingAmount:600,acceleration:4,scrollSpeed:800,noScrollCenterSpace:10,autoScrolling:0,autoScrollingSpeed:2000,autoScrollingEasing:"easeInOutQuad",autoScrollingDelay:2000});},2000)
 			
-
-		
 			var list = tds[0].innerHTML;
-			
-			
-			
 			var beg=list.search("src=");
 			var end=list.search("\">");
 			var alt_string = list.substr(beg+5,end-beg-5);
@@ -68,11 +54,8 @@ $(document).ready(function() {
 			var image_name_array = image_path.split('/'); //basepath(image_path);
 			var image_name = image_name_array[image_name_array.length - 1];
 	
-			
-	
 			//show details of first piece
 			$.post('includes/php/functions.php',{'submitted':'submitted','reason':'details','image_name':image_name},function(data){
-			//alert(data);
 				var details = $('#details');
 				details.empty();
 				details.append("<div class='spacer'>&nbsp;</div>");
@@ -84,30 +67,16 @@ $(document).ready(function() {
         		var big_wid = $('#display_pane').width();
         		var small_wid = $(this).width();
         		var the_wid = big_wid - small_wid - 10; // -10 for buffer between desc and pic
-        		//alert("big " + big_wid + " small " + small_wid + " the " + the_wid);
         		$('#details').css({ 'margin-left': -the_wid });
     		});
     				
 		});
  
- 		//$('#display_pane').empty();
 	});
 
-
-	
-	//var pos = $(window).height() - 90;	
-	//var cssObj = {'height':pos};
-	//$('#thumbnail_pane').css(cssObj);
-    //alert($(window).height() + " " + $('#display_pane').height() + " " + $('#thumbnails').height());
-
-
-
-	//get the big image on a thumbnail click. boom.	
+	//get the big image on a thumbnail click
 	$(' a > img').live(click_event,function(event) { //.thumbnail >
 
-		//$("#tS3").thumbnailScroller({scrollerType:"clickButtons",scrollerOrientation:"vertical",scrollSpeed:2,scrollEasing:"easeOutCirc",scrollEasingAmount:600,acceleration:4,scrollSpeed:800,noScrollCenterSpace:10,autoScrolling:0,autoScrollingSpeed:2000,autoScrollingEasing:"easeInOutQuad",autoScrollingDelay:500});
-
-		
 		event.preventDefault();
 		event.stopPropagation();
 
@@ -151,8 +120,8 @@ $(window).load(function() {
 
 	//alert("here");
 
-	var ua = navigator.userAgent,
-    click_event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+	var ua = navigator.userAgent;
+    var click_event = (ua.match(/iPad/i)) ? "touchstart" : "click";
 
 
 	$('.section_header h3:contains("contact")').live(click_event,function(event) {
@@ -185,11 +154,7 @@ $(window).load(function() {
 	$('#signature').live(click_event,function(event) {
 		window.location = 'index.php';
 	});
-/*	
-	$('#credits').live(click_event,function(data){
-		window.location = '../admin/index.php';
-	});
-*/
+
     var textareaWidth = $('#thumbnail_pane')[0].scrollWidth;
     $("#thumbnails").css('width',textareaWidth + "px");
 				
