@@ -44,11 +44,10 @@ if ((isset($_POST['submitted'])) || (isset($_GET['submitted']))) {
 function getThumbnails($section_name, $starting_pic) {
 
 	global $conn;
-	//$conn = mysqli_connect("localhost","sweetlou_ruppert","ruppert","sweetlou_ruppert2");
 
 	$returnString = '';
 	$base_path = '/imgs/chris/' . str_replace(" ","_",$section_name);
-	$path_array = explode("/",$base_path);
+	//$path_array = explode("/",$base_path);
 	
 	$query = "select w.item_filename FROM sections s INNER JOIN works w ON w.groups = s.cat_id where name = '$section_name' order by w.display_order";
     $result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));
@@ -58,8 +57,8 @@ function getThumbnails($section_name, $starting_pic) {
 							
 	while ( ($row = mysqli_fetch_row($result)) ) {
 		if (strpos($row[0],'.')) {
-			$file_string = "http://www.christopherruppert.com" . $base_path . DIRECTORY_SEPARATOR . "thumbs" . DIRECTORY_SEPARATOR . $row[0]; 
-			$returnString .= "<a href='" . $base_path . DIRECTORY_SEPARATOR . $row[0] . "'><img src='$file_string' /></a>";
+			$file_string = "http://www.christopherruppert.com" . $base_path . "/" . "thumbs" . "/" . $row[0]; 
+			$returnString .= "<a href='" . $base_path . "/" . $row[0] . "'><img src='$file_string' /></a>";
 		}
 	}												
 								
@@ -109,9 +108,9 @@ function getDetails($image_name) {
 
 	$returnString = '';	
 	
-	$path_array = explode("/",$base_path);
+	//$path_array = explode("/",$base_path);
+	
 	$query = "SELECT title, create_date, medium, dimensions, collection, location, explanation, master, subtitle FROM works WHERE item_filename = \"$image_name\"";
-
 	$result = mysqli_query($conn, $query) or die("Query Error: " . mysqli_error($conn));
 	
 	while ($row = mysqli_fetch_row($result)) {
